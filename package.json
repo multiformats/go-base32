@@ -1,14 +1,14 @@
 {
-  "author": "whyrusleeping",
+  "author": "Golang",
   "bugs": {
-    "url": "https://github.com/whyrusleeping/base32"
+    "url": "https://github.com/multiformats/go-base32"
   },
   "gx": {
-    "dvcsimport": "github.com/whyrusleeping/base32"
+    "dvcsimport": "github.com/multiformats/go-base32"
   },
   "gxVersion": "0.7.0",
   "language": "go",
-  "license": "",
+  "license": "BSD-3",
   "name": "base32",
   "version": "0.0.2"
 }
