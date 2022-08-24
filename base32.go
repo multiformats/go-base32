@@ -226,6 +226,7 @@ func (e *encoder) Write(p []byte) (n int, err error) {
 	}
 
 	// Trailing fringe.
+	//lint:ignore S1001 fixed-length 5-byte slice
 	for i := 0; i < len(p); i++ {
 		e.buf[i] = p[i]
 	}
