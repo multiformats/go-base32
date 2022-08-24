@@ -7,7 +7,6 @@ package base32
 import (
 	"bytes"
 	"io"
-	"io/ioutil"
 	"math/rand"
 	"strings"
 	"testing"
@@ -211,9 +210,9 @@ func TestBig(t *testing.T) {
 	if err != nil {
 		t.Fatalf("Encoder.Close() = %v want nil", err)
 	}
-	decoded, err := ioutil.ReadAll(NewDecoder(StdEncoding, encoded))
+	decoded, err := io.ReadAll(NewDecoder(StdEncoding, encoded))
 	if err != nil {
-		t.Fatalf("ioutil.ReadAll(NewDecoder(...)): %v", err)
+		t.Fatalf("io.ReadAll(NewDecoder(...)): %v", err)
 	}
 
 	if !bytes.Equal(raw, decoded) {
@@ -278,14 +277,14 @@ LNEBUWIIDFON2CA3DBMJXXE5LNFY==
 	encodedShort := strings.Replace(encoded, "\n", "", -1)
 
 	dec := NewDecoder(StdEncoding, strings.NewReader(encoded))
-	res1, err := ioutil.ReadAll(dec)
+	res1, err := io.ReadAll(dec)
 	if err != nil {
 		t.Errorf("ReadAll failed: %v", err)
 	}
 
 	dec = NewDecoder(StdEncoding, strings.NewReader(encodedShort))
 	var res2 []byte
-	res2, err = ioutil.ReadAll(dec)
+	res2, err = io.ReadAll(dec)
 	if err != nil {
 		t.Errorf("ReadAll failed: %v", err)
 	}
