@@ -6,6 +6,7 @@ package base32
 
 import (
 	"bytes"
+	crand "crypto/rand"
 	"io"
 	"math/rand"
 	"strings"
@@ -344,7 +345,7 @@ func TestNoPaddingRand(t *testing.T) {
 	for i := 0; i < 1000; i++ {
 		l := rand.Intn(len(buf))
 		seg := buf[:l]
-		rand.Read(seg)
+		crand.Read(seg)
 
 		enc := RawStdEncoding.EncodeToString(seg)
 		if strings.Contains(enc, "=") {
